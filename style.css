@@ -172,6 +172,7 @@ section.main h3 {
 
 .content-right img {
     box-shadow: 0 15px 35px #3232325e, 0 5px 15px #0000001a;
+    margin-left: 50px;
     width: 300px;
 }
 
