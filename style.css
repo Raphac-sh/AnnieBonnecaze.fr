@@ -22,6 +22,9 @@ html {
 body {
     font-size: 18px;
     margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
     color: #dfdfdf;
     background: #6a9eff fixed;
  }
@@ -80,6 +83,8 @@ nav {
 
     display: flex;
     justify-content: space-around;
+
+    z-index: 1000000;
 }
 
 nav a {
@@ -140,7 +145,7 @@ nav > ul li:hover .sous{
 }
 
 section.main {
-    background: linear-gradient(#6a9eff, 15%, #e5fdff, #e5fdff, #e5fdff, 85%, #6a9eff);
+    background: linear-gradient(#6a9eff, 10%, #effcfd, #effcfd, #effcfd, 90%, #6a9eff);
     color: black;   
 
     font-size: 25px;
@@ -160,11 +165,13 @@ section.main h3 {
 }
 
 .content-left img {
+    box-shadow: 0 15px 35px #3232325e, 0 5px 15px #0000001a;
     margin-right: 50px;
     width: 300px;
 }
 
 .content-right img {
+    box-shadow: 0 15px 35px #3232325e, 0 5px 15px #0000001a;
     width: 300px;
 }
 
@@ -190,4 +197,113 @@ footer {
 footer a {
     text-decoration: underline;
     color: #ffffff;
+}
+
+.item {
+    margin: 40px 10px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 35px #3232321a, 0 5px 15px #0000001a;
+    transition: transform 0.3s;
+    transform: translate3d(0, -1px, 0);
+}
+
+.item:hover {
+    transform: translate3d(0, -10px, 0);;
+}
+
+.item img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 380px;
+}
+
+.item__body {
+    padding: 25px;
+}
+
+.item__title {
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #232323;
+}
+
+.item__description {
+    color: #585858;
+}
+
+.items {
+    position: relative;
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel__container {
+    transition: transform 0.3s;
+    transform: translate3d(0, 0, 0);
+}
+
+.carousel__container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.carousel__item {
+    float: left;
+}
+
+.carousel__next, .carousel__prev {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ffffff91 url(assets/right.webp) center center no-repeat;
+    background-size: 20px 20px;
+    border-radius: 50%;
+    top: 50%;
+    right: 20px;
+    box-shadow: 0 15px 35px #3232325e, 0 5px 15px #0000001a;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.carousel__next:hover, .carousel__prev:hover {
+    transform: scale(1.1);
+}
+
+.carousel__prev {
+    right: auto;
+    left: 20px;
+    background-image: url(assets/left.png);
+}
+
+.paint_line {
+    margin: 60px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.paint_item {
+    padding: 20px;
+    background-color: #ffffff;
+
+    box-shadow: 0 15px 35px #3232325e, 0 5px 15px #0000001a;
+    transition: transform 0.3s;
+}
+
+.paint_item:hover {
+    transform: scale(1.05);
+}
+
+.paint_item p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.paint_item img {
+    max-height: 350px;
 }
