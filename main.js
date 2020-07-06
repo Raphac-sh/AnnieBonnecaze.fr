@@ -88,6 +88,7 @@ class Carousel {
       console.log("hey");
     }
 
+    // animation and update
     let translateX = index * -100 / this.items.length;
     this.container.style.transform = 'translate3d(' + translateX + '%, 0, 0)';
     this.currentItem = index;
@@ -96,7 +97,9 @@ class Carousel {
 
 // Wait for DOM
 document.addEventListener("DOMContentLoaded", function () {
-  const carousel = new Carousel(document.querySelector("#carousel1"), {
+
+  // Create carousel with parameters
+  let carousel = new Carousel(document.querySelector("#carousel1"), {
     slidesToScroll: 1,
     slidesVisible: 3
   })
