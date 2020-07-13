@@ -8,7 +8,7 @@ document.write(`
     <ul>                  
       <li><a href="index.html">Accueil</a></li>
 
-      <li><a href="Pastel.html">Pastel</a></li>
+      <li><a href="Pastel.html">Pastels</a></li>
       <li class="deroulant"><a href="#">Huiles </a>
         <ul class="sous">
           <li><a href="huiles.html">Divers</a></li>

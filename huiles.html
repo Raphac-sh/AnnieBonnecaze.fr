@@ -26,10 +26,34 @@ This file is part of AnnieBonnecaze.fr
             @import url('https://fonts.googleapis.com/css2?family=+Script&family=Spirax&display=swap');
     </style>   
     <title>Annie Bonnecaze - Peintre</title>
-    <script src="main.js" async></script>
-    <script src="auto-update.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>  
+    <header>
+        <h1 class="big-title">Annie Bonnecaze,</h1><h3 class="small-title">Artiste Peintre</h3>
+        <picture>
+            <source media="(max-width: 1200px)" srcset="assets/banner1200.png 1x, assets/banner345.png 2x">
+            <img src="assets/banner.png">
+        </picture>
+        
+    </header>
+    
+    <nav>
+        <ul>                  
+          <li><a href="index.html">Accueil</a></li>
+    
+          <li><a href="Pastel.html">Pastels</a></li>
+          <li class="deroulant"><a href="#">Huiles </a>
+            <ul class="sous">
+              <li><a href="huiles.html">Divers</a></li>
+              <li><a href="huiles_Paysages.html">Paysages</a></li>
+              <li><a href="huiles_fleurs.html">Fleurs</a></li>
+            </ul>
+          </li>
+    
+          <li><a href="#footer">Me contacter</a></li>
+        </ul>
+    </nav>
 
     <section class="main">       
         

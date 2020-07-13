@@ -22,6 +22,9 @@ class Carousel {
     
     this.currentItem = 0;
 
+    this.isMobile = false;
+    this.isTablet = false;
+
     // HTML architecture
     let children = [].slice.call(element.children);
     this.root = this.createDiv("carousel");
@@ -39,6 +42,9 @@ class Carousel {
 
     this.setStyle();
     this.createNav();
+
+    this.onResize();
+    window.addEventListener('resize', this.onResize.bind(this))
   }
 
   createDiv(className) {
@@ -49,9 +55,9 @@ class Carousel {
 
   // Gives good dimensions to elements
   setStyle() {
-    let ratio = this.items.length / this.options.slidesVisible;
+    let ratio = this.items.length / this.slidesVisible;
     this.items.forEach(item => {
-      item.style.width = ((100 / this.options.slidesVisible) / ratio) + "%"
+      item.style.width = ((100 / this.slidesVisible) / ratio) + "%"
     });
     this.container.style.width = (ratio * 100) + "%";
   }
@@ -70,12 +76,12 @@ class Carousel {
 
   // Navigation methods
   next() {
-    this.goToItem(this.currentItem + this.options.slidesToScroll);
+    this.goToItem(this.currentItem + this.slidesToScroll);
 
   }
 
   prev() {
-    this.goToItem(this.currentItem - this.options.slidesToScroll);
+    this.goToItem(this.currentItem - this.slidesToScroll);
   }
 
   goToItem(index) {
@@ -93,10 +99,33 @@ class Carousel {
     this.container.style.transform = 'translate3d(' + translateX + '%, 0, 0)';
     this.currentItem = index;
   }
+
+  onResize() {
+    let mobile = window.innerWidth < 800;
+    let tablet = window.innerWidth < 1200;
+    if(mobile != this.isMobile) {
+      this.isMobile = mobile;
+      this.setStyle()
+    }
+    if(tablet != this.isTablet) {
+      this.isTablet = tablet;
+      this.setStyle()
+    }
+  }
+
+  // Responsive getters
+  get slidesToScroll() {
+    return this.isMobile ? 1 : this.isTablet ? 2 : this.options.slidesToScroll;
+  }
+  get slidesVisible() {
+    return this.isMobile ? 1 : this.isTablet ? 2 : this.options.slidesVisible;
+  }
 }
 
 // Wait for DOM
 document.addEventListener("DOMContentLoaded", function () {
+
+  console.log("dom");
 
   // Create carousel with parameters
   let carousel = new Carousel(document.querySelector("#carousel1"), {
