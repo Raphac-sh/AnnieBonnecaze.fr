@@ -316,9 +316,11 @@ footer a {
   margin: 60px 0;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .paint_item {
+  margin: 50px 0;
   max-width: 30%;
   padding: 20px;
   background-color: #ffffff;
@@ -339,9 +341,6 @@ footer a {
 .paint_item img {
   width: 100%;
   max-height: 350px;
-}
-
-@media only screen and (max-width: 1200px) {
 }
 
 @media only screen and (max-width: 650px) {

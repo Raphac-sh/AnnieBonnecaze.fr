@@ -92,7 +92,6 @@ class Carousel {
         index > this.currentItem)
     ) {
       index = 0;
-      console.log('hey');
     }
 
     // animation and update
@@ -116,7 +115,7 @@ class Carousel {
 
   // Responsive getters
   get slidesToScroll() {
-    return this.isMobile ? 1 : this.isTablet ? 2 : this.options.slidesToScroll;
+    return 1;
   }
   get slidesVisible() {
     return this.isMobile ? 1 : this.isTablet ? 2 : this.options.slidesVisible;
@@ -125,8 +124,6 @@ class Carousel {
 
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('dom');
-
   // Create carousel with parameters
   let carousel = new Carousel(document.querySelector('#carousel1'), {
     slidesToScroll: 1,
